@@ -22,7 +22,7 @@ OID_GIVEN_NAME = "urn:oid:2.5.4.42"
 OID_MAIL = "urn:oid:0.9.2342.19200300.100.1.3"
 OID_SURNAME = "urn:oid:2.5.4.4"
 OID_USERID = "urn:oid:0.9.2342.19200300.100.1.1"
-logger = logging.get_logger(__name__)
+logger = logging.getLogger(__name__)
 
 
 class SAMLIdentityProvider(object):
