@@ -7,6 +7,7 @@ Terminology:
 "Identity Provider" (IdP): The third-party site that is authenticating
                            users via SAML
 """
+import logging
 from onelogin.saml2.auth import OneLogin_Saml2_Auth
 from onelogin.saml2.settings import OneLogin_Saml2_Settings
 
@@ -21,6 +22,7 @@ OID_GIVEN_NAME = "urn:oid:2.5.4.42"
 OID_MAIL = "urn:oid:0.9.2342.19200300.100.1.3"
 OID_SURNAME = "urn:oid:2.5.4.4"
 OID_USERID = "urn:oid:0.9.2342.19200300.100.1.1"
+logger = logging.get_logger(__name__)
 
 
 class SAMLIdentityProvider(object):
@@ -53,6 +55,8 @@ class SAMLIdentityProvider(object):
         Given the SAML attributes extracted from the SSO response, get
         the user data like name.
         """
+        logger.info("+++++ SAML Attributes +++++")
+        logger.info(attributes)
         return {
             'fullname': self.get_attr(attributes, 'attr_full_name',
                                       OID_COMMON_NAME),
