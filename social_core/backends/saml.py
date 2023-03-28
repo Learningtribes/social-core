@@ -64,6 +64,7 @@ class SAMLIdentityProvider(object):
                                       OID_USERID),
             'email': self.get_attr(attributes, 'attr_email',
                                    OID_MAIL),
+            'country': self.get_attr(attributes, 'Country', 'Country')
         }
 
     def get_attr(self, attributes, conf_key, default_attribute):
